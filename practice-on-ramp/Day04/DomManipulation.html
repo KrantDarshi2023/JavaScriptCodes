@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form  name="myForm" id="signup", onsubmit="validateform()">
+            <h1>Sign Up</h1>
+            <div class="field">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your fullname" />
+                <small></small>
+            </div>
+            <div class="field">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Enter your email address" />
+                <small></small>
+            </div>
+            <div class="field">
+                <label for="phoneno">Phoneno:</label>
+                <input type="text" id="phoneno" name="phoneno" placeholder="Enter your Phoneno" />
+                <small></small>
+            </div>
+            <div class="field">
+                <label for="gender">Gender:</label>
+                <input type="radio" id="male" name="gender" value="Male">
+                 <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="Female">
+                 <label for="feale">Female</label>
+                <small></small>
+            </div>
+            <div class="field">
+                <label for ="hobbies">Hobbies:</label>
+            <input type="checkbox" id="hobbies1" name="hobbies1" value="novelreading">
+             <label for="hobbies1"> Novel Reading</label>
+             <input type="checkbox" id="hobbies2" name="hobbies2" value="swimming">
+             <label for="hobbies2"> Swimming</label>
+             <input type="checkbox" id="hobbies3" name="hobbies3" value="camping">
+             <label for="hobbies3"> Camping</label>
+            </div>
+
+            <div class="field">
+                <button type="submit" class="full">Submit</button>
+                <button type="submit" class="full">Reset</button>
+            </div>
+        </form>
+    </div>
+    <script>
+     function validateform() {
+        let name= document.myForm.name.value;
+         let email=document.myForm.email.value;
+         let phone=document.myForm.phoneno.value;
+         let gender=document.myForm.gender.value;
+         let hobbie1=document.myForm.hobbies1.value;
+         let hobbie2=document.myForm.hobbies2.value;
+         let hobbie3=document.myForm.hobbies3.value;
+
+  var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+  var regMobile = /^\d{10}$/;
+
+  if (name == "") {
+    window.alert("Please enter a valid name.");
+    return false;
+  }
+
+  if (email == "" || !regEmail.test(email)) {
+    window.alert("Please enter a valid e-mail address.");
+    return false;
+  }
+
+  if (phone == "" || !regMobile.test(phone)) {
+    alert("Please enter valid phone number.");
+    return false;
+  }
+  
+  debugger
+  if(!gender){
+   alert("Please Select the Gender");
+   return false;
+  }
+  if(document.forms.myForm.gender[1].checked){
+     if(!hobbie1.checked && !hobbie2.checked && !hobbie3.checked){
+        alert("Please select a hobbie")
+        return false;
+     }
+}
+
+  return true;
+}
+    </script>
+    
+</body>
+</html>
